@@ -1,6 +1,6 @@
 ﻿$params = @{
     VMName = "GPUPVNoVDD" #VMName No special characters, less than 15 characters
-    SourcePath = "C:\Users\novam\Downloads\Win10_21H2_English_x64.iso" #Path to ISO, DO NOT USE MEDIA CREATION TOOL
+    SourcePath = "C:\Users\test\Downloads\Win10_21H2_English_x64.iso" #Path to ISO, DO NOT USE MEDIA CREATION TOOL
     Edition    = 6 #Do not touch
     VhdFormat  = "VHDX" #Do not touch
     DiskLayout = "UEFI" #Do not touch
