@@ -1,7 +1,7 @@
 # Easy-GPU-PV
 A work-in-progress project dedicated to making GPU Paravirtualization on Windows Hyper-V easier!  
 
-#This fork has removed Parsec's Virtual Display Adapter. As it causes OpenGL issues and will cause numerous games to crash. I have edited some of the powershell to prevent it from installing initially, and it installs parsec of its own occord, without the virtual display adapter.
+# This fork has removed Parsec's Virtual Display Adapter. As it causes OpenGL issues and will cause numerous games to crash. I have edited some of the powershell to prevent it from installing initially, and it installs parsec of its own occord, without the virtual display adapter.
 
 GPU-PV allows you to partition your systems dedicated or integrated GPU and assign it to several Hyper-V VMs.  It's the same technology that is used in WSL2, and Windows Sandbox.  
 
