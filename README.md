@@ -37,7 +37,7 @@ Easy-GPU-PV does the following...
 13. Navigate to the usbmmidd_2 on the VM you copied and run the InstallAndAddOneDisplay.bat. Click yes for all of the UAC prompts that comes up.
 14. Then you will take OnlyAddOneDisplay.bat and make it start when your computer boots, and when no one is logged in. This can be achieved with task scheduler. This adds a virtual display in place of parsecs virtual display on boot. If you miss this step, or it is done improperly, every time you reboot, parsec will not reconnect unless you manually run this bat.
 15. Then setup parsec to your specifications. After you do this. Reboot the VM.
-## This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
+#### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
 16. Exit the Hyper-V Connection and then connect with Parsec after setup.
 17. You should see your desktop. NOTE: Sometimes when a UAC prompt shows up parsec will freeze or go black. If you wait it will eventually show the prompt and you can continue.
 18. Have Fun! You now have a fully functioning gaming VM!
