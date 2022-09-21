@@ -29,8 +29,20 @@ Easy-GPU-PV does the following...
 5. Open and Run PreChecks.ps1 in Powershell ISE using the green play button and copy the GPU Listed (or the warnings that you need to fix).
 6. Open CopyFilesToVM.ps1 Powershell ISE and edit the params section at the top of the file, you need to be careful about how much ram, storage and hard drive you give it as your system needs to have that available.  On Windows 10 the GPUName must be left as "AUTO", In Windows 11 it can be either "AUTO" or the specific name of the GPU you want to partition exactly how it appears in PreChecks.ps1.  Additionally, you need to provide the path to the Windows 10/11 ISO file you downloaded.
 7. Run CopyFilesToVM.ps1 with your changes to the params section - this may take 5-10 minutes.
-8. Open and sign into Parsec on the VM.  You can use Parsec to connect to the VM up to 4K60FPS.
-9. You should be good to go!
+8. Sign in to the VM WITH HYPER-V. PARSEC WILL NOT WORK YET. Make sure you can get to the desktop.
+9. Turn off the VM.
+10. Navigate to the Virtual Hard Drive you made for this VM. You know its directory from Step 6.
+11. Right click the VHD and click mount. You will see a new "Local Storage" appear as a storage device you can access in file explorer. You will then copy the provided usbmmidd_2 folder to C:/ so it is easy to find. Or wherever you prefer. If you open a folder and it says "You dont have permission"n just press continue.
+12. Eject the VHD. Then turn the VM back on and sign in.
+13. Navigate to the usbmmidd_2 on the VM you copied and run the InstallAndAddOneDisplay.bat. Click yes for all of the UAC prompts that comes up.
+14. Then you will take OnlyAddOneDisplay.bat and make it start when your computer boots, and when no one is logged in. This can be achieved with task scheduler. This adds a virtual display in place of parsecs virtual display on boot. If you miss this step, or it is done improperly, every time you reboot, parsec will not reconnect unless you manually run this bat.
+15. Then setup parsec to your specifications. After you do this. Reboot the VM.
+## This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
+16. Exit the Hyper-V Connection and then connect with Parsec after setup.
+17. You should see your desktop. NOTE: Sometimes when a UAC prompt shows up parsec will freeze or go black. If you wait it will eventually show the prompt and you can continue.
+18. Have Fun! You now have a fully functioning gaming VM!
+    
+Notes: If you reboot the VM and parsec stays black, it is because you did not make the OnlyAddOneDisplay.bat run on startup. You will have to make 100% it starts on boot.
 
 ### Upgrading GPU Drivers when you update the host GPU Drivers
 It's important to update the VM GPU Drivers after you have updated the Host GPUs drivers. You can do this by...  
