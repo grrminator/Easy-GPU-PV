@@ -203,10 +203,10 @@ $XML = @"
     Register-ScheduledTask -XML $XML -TaskName "Install Parsec Virtual Display Driver" | Out-Null
     }
 
-ParsecVDDMonitorSetupScheduledTask
+#ParsecVDDMonitorSetupScheduledTask
 VBCableInstallSetupScheduledTask
-ParsecVDDInstallSetupScheduledTask
+#ParsecVDDInstallSetupScheduledTask
 
 Start-ScheduledTask -TaskName "Install VB Cable"
-Start-ScheduledTask -TaskName "Install Parsec Virtual Display Driver"
-Start-ScheduledTask -TaskName "Monitor Parsec VDD State"
+#Start-ScheduledTask -TaskName "Install Parsec Virtual Display Driver"
+#Start-ScheduledTask -TaskName "Monitor Parsec VDD State"

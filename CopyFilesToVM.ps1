@@ -1,21 +1,24 @@
 ﻿$params = @{
-    VMName = "GPUPV"
-    SourcePath = "C:\Users\james\Downloads\Win11_English_x64.iso"
-    Edition    = 6
-    VhdFormat  = "VHDX"
-    DiskLayout = "UEFI"
+    VMName = "GPUPVNoVDD" #VMName No special characters, less than 15 characters
+    SourcePath = "C:\Users\novam\Downloads\Win10_21H2_English_x64.iso" #Path to ISO, DO NOT USE MEDIA CREATION TOOL
+    Edition    = 6 #Do not touch
+    VhdFormat  = "VHDX" #Do not touch
+    DiskLayout = "UEFI" #Do not touch
     SizeBytes  = 40GB
     MemoryAmount = 8GB
     CPUCores = 4
-    NetworkSwitch = "Default Switch"
-    VHDPath = "C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\"
-    UnattendPath = "$PSScriptRoot"+"\autounattend.xml"
-    GPUName = "AUTO"
-    GPUResourceAllocationPercentage = 50
-    Team_ID = ""
-    Key = ""
-    Username = "GPUVM"
-    Password = "CoolestPassword!"
+    NetworkSwitch = "Default Switch" #Do not touch unless you know what you are doing
+    VHDPath = "C:\VMs" #Virtual Hard Drive Path
+    UnattendPath = "$PSScriptRoot"+"\autounattend.xml" #Do Not Touch
+    GPUName = "AUTO" #Windows 10 MUST be set to AUTO. If using Win 11 ISO, can be set to GPU name fed to you in precheck script.
+    GPUResourceAllocationPercentage = 25 #percentage of resources VM should use for GPU
+	
+	InstallParsec = "Yes" #Yes/No. DO NOT INSTALL THE VIRTUAL DISPLAY ADAPTER ***EVER***
+	
+    Team_ID = "" #Optional for Parsec Teams function. Ignore if you did not install parsec.
+    Key = "" #Optional for Parsec Teams function. Ignore if you did not install parsec
+    Username = "GPUVM" #Do not make your username the same as your VM name or it will screw up your permissions
+    Password = "BorkBorkShork"
     Autologon = "true"
 }
 
@@ -164,11 +167,11 @@ param(
     if((Test-Path -Path $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts\Startup) -eq $true) {} Else {New-Item -Path $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts\Startup -ItemType directory | Out-Null}
     if((Test-Path -Path $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts\Shutdown) -eq $true) {} Else {New-Item -Path $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts\Shutdown -ItemType directory | Out-Null}
     if((Test-Path -Path $DriveLetter\ProgramData\Easy-GPU-P) -eq $true) {} Else {New-Item -Path $DriveLetter\ProgramData\Easy-GPU-P -ItemType directory | Out-Null}
-    Copy-Item -Path $psscriptroot\VMScripts\VDDMonitor.ps1 -Destination $DriveLetter\ProgramData\Easy-GPU-P
+    #Copy-Item -Path $psscriptroot\VMScripts\VDDMonitor.ps1 -Destination $DriveLetter\ProgramData\Easy-GPU-P
     Copy-Item -Path $psscriptroot\VMScripts\VBCableInstall.ps1 -Destination $DriveLetter\ProgramData\Easy-GPU-P
-    Copy-Item -Path $psscriptroot\VMScripts\ParsecVDDInstall.ps1 -Destination $DriveLetter\ProgramData\Easy-GPU-P
-    Copy-Item -Path $psscriptroot\VMScripts\ParsecPublic.cer -Destination $DriveLetter\ProgramData\Easy-GPU-P
-    Copy-Item -Path $psscriptroot\VMScripts\Parsec.lnk -Destination $DriveLetter\ProgramData\Easy-GPU-P
+    #Copy-Item -Path $psscriptroot\VMScripts\ParsecVDDInstall.ps1 -Destination $DriveLetter\ProgramData\Easy-GPU-P
+    #Copy-Item -Path $psscriptroot\VMScripts\ParsecPublic.cer -Destination $DriveLetter\ProgramData\Easy-GPU-P
+    #Copy-Item -Path $psscriptroot\VMScripts\Parsec.lnk -Destination $DriveLetter\ProgramData\Easy-GPU-P
     Copy-Item -Path $psscriptroot\gpt.ini -Destination $DriveLetter\Windows\system32\GroupPolicy
     Copy-Item -Path $psscriptroot\User\psscripts.ini -Destination $DriveLetter\Windows\system32\GroupPolicy\User\Scripts
     Copy-Item -Path $psscriptroot\User\Install.ps1 -Destination $DriveLetter\Windows\system32\GroupPolicy\User\Scripts\Logon
