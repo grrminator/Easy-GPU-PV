@@ -1,5 +1,5 @@
 ﻿$params = @{
-    VMName = "GPUPVNoVDD" #VMName No special characters, less than 15 characters
+    VMName = "GPUPV" #VMName No special characters, less than 15 characters
     SourcePath = "C:\Users\test\Downloads\Win10_21H2_English_x64.iso" #Path to ISO, DO NOT USE MEDIA CREATION TOOL
     Edition    = 6 #Do not touch
     VhdFormat  = "VHDX" #Do not touch
@@ -16,8 +16,8 @@
     Team_ID = "" #Optional for Parsec Teams function.
     Key = "" #Optional for Parsec Teams function.
     Username = "GPUVM" #Do not make your username the same as your VM name or it will screw up your permissions
-    Password = "SuperAwesomePassword"
-    Autologon = "true"
+    Password = "SuperAwesomePassword" #Change this password
+    Autologon = "true" #true/false if you want the VM logged in automatically
 }
 
 Import-Module $PSSCriptRoot\Add-VMGpuPartitionAdapterFiles.psm1
@@ -175,6 +175,7 @@ param(
     Copy-Item -Path $psscriptroot\User\Install.ps1 -Destination $DriveLetter\Windows\system32\GroupPolicy\User\Scripts\Logon
     Copy-Item -Path $psscriptroot\Machine\psscripts.ini -Destination $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts
     Copy-Item -Path $psscriptroot\Machine\Install.ps1 -Destination $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts\Startup
+	Copy-Item -Path $psscriptroot\usbmmidd_v2 -Destination $DriveLetter\DisplayFix -recurse -Force
 }
 
 function Convert-WindowsImage {

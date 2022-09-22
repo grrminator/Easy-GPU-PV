@@ -9,6 +9,13 @@ while(!(Test-NetConnection Google.com).PingSucceeded){
 
 Get-ChildItem -Path C:\ProgramData\Easy-GPU-P -Recurse | Unblock-File
 
+if ((Test-Path C:\DisplayFix\DONOTDELETE.txt)) {
+    exit
+    }
+    else{
+		Start-Process -FilePath "C:\DisplayFix\Install.bat" -Wait -NoNewWindow
+	}
+
 if (Test-Path HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Parsec) 
     {}
     else {
