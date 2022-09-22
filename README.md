@@ -34,9 +34,8 @@ Easy-GPU-PV does the following...
 10. Navigate to the Virtual Hard Drive you made for this VM. You know its directory from Step 6.
 11. Right click the VHD and click mount. You will see a new "Local Storage" appear as a storage device you can access in file explorer. You will then copy the provided usbmmidd_2 folder to C:/ so it is easy to find. Or wherever you prefer. If you open a folder and it says "You dont have permission"n just press continue.
 12. Eject the VHD. Then turn the VM back on and sign in.
-13. Navigate to the usbmmidd_2 on the VM you copied and run the InstallAndAddOneDisplay.bat. Click yes for all of the UAC prompts that comes up.
-14. Then you will take OnlyAddOneDisplay.bat and make it start when your computer boots, and when no one is logged in. This can be achieved with task scheduler. This adds a virtual display in place of parsecs virtual display on boot. If you miss this step, or it is done improperly, every time you reboot, parsec will not reconnect unless you manually run this bat.
-15. Then setup parsec to your specifications. After you do this. Reboot the VM.
+13. Navigate to the usbmmidd_2 on the VM you copied and run the Install.bat. Click yes for all of the UAC prompts that comes up. This will install a different Virtual Display Driver and add a virtual display for you on boot. Your VM should reboot on its own. After reboot, check for a virtual display, and then change your resolution on it to your specifications.
+15. Then setup parsec to your specifications.
 #### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
 16. Exit the Hyper-V Connection and then connect with Parsec after setup.
 17. You should see your desktop. NOTE: Sometimes when a UAC prompt shows up parsec will freeze or go black. If you wait it will eventually show the prompt and you can continue.
