@@ -1,6 +1,8 @@
 # Easy-GPU-PV
 A work-in-progress project dedicated to making GPU Paravirtualization on Windows Hyper-V easier!  
 
+### This fork has removed Parsec's Virtual Display Adapter. As it causes OpenGL issues and will cause numerous games to crash. I have edited some of the powershell to prevent it from installing initially, and it installs parsec of its own occord, without the virtual display adapter.
+
 GPU-PV allows you to partition your systems dedicated or integrated GPU and assign it to several Hyper-V VMs.  It's the same technology that is used in WSL2, and Windows Sandbox.  
 
 Easy-GPU-PV aims to make this easier by automating the steps required to get a GPU-PV VM up and running.  
@@ -21,14 +23,26 @@ Easy-GPU-PV does the following...
 
 ### Instructions
 1. Make sure your system meets the prerequisites.
-2. [Download the Repo and extract.](https://github.com/jamesstringerparsec/Easy-GPU-PV/archive/refs/heads/main.zip)
+2. [Download the Repo and extract.](https://github.com/grrminator/Easy-GPU-PV/archive/refs/tags/Release.zip)
 3. Search your system for Powershell ISE and run as Administrator.
 4. In the extracted folder you downloaded, open PreChecks.ps1 in Powershell ISE.  Run the files from within the extracted folder. Do not move them.
 5. Open and Run PreChecks.ps1 in Powershell ISE using the green play button and copy the GPU Listed (or the warnings that you need to fix).
 6. Open CopyFilesToVM.ps1 Powershell ISE and edit the params section at the top of the file, you need to be careful about how much ram, storage and hard drive you give it as your system needs to have that available.  On Windows 10 the GPUName must be left as "AUTO", In Windows 11 it can be either "AUTO" or the specific name of the GPU you want to partition exactly how it appears in PreChecks.ps1.  Additionally, you need to provide the path to the Windows 10/11 ISO file you downloaded.
 7. Run CopyFilesToVM.ps1 with your changes to the params section - this may take 5-10 minutes.
-8. Open and sign into Parsec on the VM.  You can use Parsec to connect to the VM up to 4K60FPS.
-9. You should be good to go!
+8. Sign in to the VM WITH HYPER-V. PARSEC WILL NOT WORK YET. Make sure you can get to the desktop.
+9. Turn off the VM.
+10. Navigate to the Virtual Hard Drive you made for this VM. You know its directory from Step 6.
+11. Right click the VHD and click mount. You will see a new "Local Storage" appear as a storage device you can access in file explorer. You will then copy the provided usbmmidd_2 folder to C:/ so it is easy to find. Or wherever you prefer. If you open a folder and it says "You dont have permission"n just press continue.
+12. Eject the VHD. Then turn the VM back on and sign in.
+13. Navigate to the usbmmidd_2 on the VM you copied and run the InstallAndAddOneDisplay.bat. Click yes for all of the UAC prompts that comes up.
+14. Then you will take OnlyAddOneDisplay.bat and make it start when your computer boots, and when no one is logged in. This can be achieved with task scheduler. This adds a virtual display in place of parsecs virtual display on boot. If you miss this step, or it is done improperly, every time you reboot, parsec will not reconnect unless you manually run this bat.
+15. Then setup parsec to your specifications. After you do this. Reboot the VM.
+#### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
+16. Exit the Hyper-V Connection and then connect with Parsec after setup.
+17. You should see your desktop. NOTE: Sometimes when a UAC prompt shows up parsec will freeze or go black. If you wait it will eventually show the prompt and you can continue.
+18. Have Fun! You now have a fully functioning gaming VM!
+    
+Notes: If you reboot the VM and parsec stays black, it is because you did not make the OnlyAddOneDisplay.bat run on startup. You will have to make 100% it starts on boot.
 
 ### Upgrading GPU Drivers when you update the host GPU Drivers
 It's important to update the VM GPU Drivers after you have updated the Host GPUs drivers. You can do this by...  
@@ -69,7 +83,6 @@ It's important to update the VM GPU Drivers after you have updated the Host GPUs
 - A powered on display / HDMI dummy dongle must be plugged into the GPU to allow Parsec to capture the screen.  You only need one of these per host machine regardless of number of VM's.
 - If your computer is super fast it may get to the login screen before the audio driver (VB Cable) and Parsec display driver are installed, but fear not! They should soon install.  
 - The screen may go black for times up to 10 seconds in situations when UAC prompts appear, applications go in and out of fullscreen and when you switch between video codecs in Parsec - not really sure why this happens, it's unique to GPU-P machines and seems to recover faster at 1280x720.
-- Vulkan renderer is unavailable and GL games may or may not work.  [This](https://www.microsoft.com/en-us/p/opencl-and-opengl-compatibility-pack/9nqpsl29bfff?SilentAuth=1&wa=wsignin1.0#activetab=pivot:overviewtab) may help with some OpenGL apps.  
 - If you do not have administrator permissions on the machine it means you set the username and vmname to the same thing, these needs to be different.  
 - AMD Polaris GPUS like the RX 580 do not support hardware video encoding via GPU Paravirtualization at this time.  
 - To download Windows ISOs with Rufus, it must have "Check for updates" enabled.

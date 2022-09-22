@@ -1,6 +1,6 @@
 ﻿$params = @{
     VMName = "GPUPVNoVDD" #VMName No special characters, less than 15 characters
-    SourcePath = "C:\Users\novam\Downloads\Win10_21H2_English_x64.iso" #Path to ISO, DO NOT USE MEDIA CREATION TOOL
+    SourcePath = "C:\Users\test\Downloads\Win10_21H2_English_x64.iso" #Path to ISO, DO NOT USE MEDIA CREATION TOOL
     Edition    = 6 #Do not touch
     VhdFormat  = "VHDX" #Do not touch
     DiskLayout = "UEFI" #Do not touch
@@ -13,12 +13,10 @@
     GPUName = "AUTO" #Windows 10 MUST be set to AUTO. If using Win 11 ISO, can be set to GPU name fed to you in precheck script.
     GPUResourceAllocationPercentage = 25 #percentage of resources VM should use for GPU
 	
-	InstallParsec = "Yes" #Yes/No. DO NOT INSTALL THE VIRTUAL DISPLAY ADAPTER ***EVER***
-	
-    Team_ID = "" #Optional for Parsec Teams function. Ignore if you did not install parsec.
-    Key = "" #Optional for Parsec Teams function. Ignore if you did not install parsec
+    Team_ID = "" #Optional for Parsec Teams function.
+    Key = "" #Optional for Parsec Teams function.
     Username = "GPUVM" #Do not make your username the same as your VM name or it will screw up your permissions
-    Password = "BorkBorkShork"
+    Password = "SuperAwesomePassword"
     Autologon = "true"
 }
 
