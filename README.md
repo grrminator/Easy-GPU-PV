@@ -40,8 +40,6 @@ Easy-GPU-PV does the following...
 16. Exit the Hyper-V Connection and then connect with Parsec after setup.
 17. You should see your desktop. NOTE: Sometimes when a UAC prompt shows up parsec will freeze or go black. If you wait it will eventually show the prompt and you can continue.
 18. Have Fun! You now have a fully functioning gaming VM!
-    
-Notes: If you reboot the VM and parsec stays black, it is because you did not make the OnlyAddOneDisplay.bat run on startup. You will have to make 100% it starts on boot.
 
 ### Upgrading GPU Drivers when you update the host GPU Drivers
 It's important to update the VM GPU Drivers after you have updated the Host GPUs drivers. You can do this by...  
