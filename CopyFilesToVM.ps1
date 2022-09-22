@@ -4,11 +4,11 @@
     Edition    = 6 #Do not touch
     VhdFormat  = "VHDX" #Do not touch
     DiskLayout = "UEFI" #Do not touch
-    SizeBytes  = 40GB
+    SizeBytes  = 50GB
     MemoryAmount = 8GB
     CPUCores = 4
     NetworkSwitch = "Default Switch" #Do not touch unless you know what you are doing
-    VHDPath = "C:\VMs" #Virtual Hard Drive Path
+    VHDPath = "D:\VMs" #Virtual Hard Drive Path
     UnattendPath = "$PSScriptRoot"+"\autounattend.xml" #Do Not Touch
     GPUName = "AUTO" #Windows 10 MUST be set to AUTO. If using Win 11 ISO, can be set to GPU name fed to you in precheck script.
     GPUResourceAllocationPercentage = 25 #percentage of resources VM should use for GPU
