@@ -23,16 +23,16 @@ Easy-GPU-PV does the following...
 
 ### Instructions
 1. Make sure your system meets the prerequisites.
-2. [Download the Repo and extract.](https://github.com/grrminator/Easy-GPU-PV/archive/refs/tags/Release.zip)
+2. [Download the Repo and extract.](https://github.com/jamesstringerparsec/Easy-GPU-PV/archive/refs/heads/main.zip)
 3. Search your system for Powershell ISE and run as Administrator.
 4. In the extracted folder you downloaded, open PreChecks.ps1 in Powershell ISE.  Run the files from within the extracted folder. Do not move them.
 5. Open and Run PreChecks.ps1 in Powershell ISE using the green play button and copy the GPU Listed (or the warnings that you need to fix).
 6. Open CopyFilesToVM.ps1 Powershell ISE and edit the params section at the top of the file, you need to be careful about how much ram, storage and hard drive you give it as your system needs to have that available.  On Windows 10 the GPUName must be left as "AUTO", In Windows 11 it can be either "AUTO" or the specific name of the GPU you want to partition exactly how it appears in PreChecks.ps1.  Additionally, you need to provide the path to the Windows 10/11 ISO file you downloaded.
 7. Run CopyFilesToVM.ps1 with your changes to the params section - this may take 5-10 minutes.
-8. The script will automatically connect you to the VM after it completes. It may reboot numerous times.
-9. When you get to the desktop, right click the desktop, go to display settings, you will see two displays. Set the SECOND display to your desired resolution you wish to game on this VM at.
-10. Setup Parsec to your preferences if you didnt set the team/key in a prior step, then close the Hyper-V Connection window.
-11. Connect with Parsec Have Fun! You now have a fully functioning gaming VM!
+8. After this, a window should pop open and you should see your VM Booting. It may reboot multiple times. After it gets to the desktop, right click the desktop, display settings, and then change the SECOND display's resolution to your desired resolution for remote gaming.
+9. Close out the VM and then remote in with parsec!
+#### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
+18. Have Fun! You now have a fully functioning gaming VM!
     
 Notes: If you reboot the VM and parsec stays black, it is because you did not make the OnlyAddOneDisplay.bat run on startup. You will have to make 100% it starts on boot.
 
@@ -75,6 +75,7 @@ It's important to update the VM GPU Drivers after you have updated the Host GPUs
 - A powered on display / HDMI dummy dongle must be plugged into the GPU to allow Parsec to capture the screen.  You only need one of these per host machine regardless of number of VM's.
 - If your computer is super fast it may get to the login screen before the audio driver (VB Cable) and Parsec display driver are installed, but fear not! They should soon install.  
 - The screen may go black for times up to 10 seconds in situations when UAC prompts appear, applications go in and out of fullscreen and when you switch between video codecs in Parsec - not really sure why this happens, it's unique to GPU-P machines and seems to recover faster at 1280x720.
+- Vulkan renderer is unavailable and GL games may or may not work.  [This](https://www.microsoft.com/en-us/p/opencl-and-opengl-compatibility-pack/9nqpsl29bfff?SilentAuth=1&wa=wsignin1.0#activetab=pivot:overviewtab) may help with some OpenGL apps.  
 - If you do not have administrator permissions on the machine it means you set the username and vmname to the same thing, these needs to be different.  
 - AMD Polaris GPUS like the RX 580 do not support hardware video encoding via GPU Paravirtualization at this time.  
 - To download Windows ISOs with Rufus, it must have "Check for updates" enabled.
