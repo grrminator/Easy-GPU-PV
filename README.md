@@ -23,7 +23,7 @@ Easy-GPU-PV does the following...
 
 ### Instructions
 1. Make sure your system meets the prerequisites.
-2. [Download the Repo and extract.](https://github.com/jamesstringerparsec/Easy-GPU-PV/archive/refs/heads/main.zip)
+2. [Download the Repo and extract.](https://github.com/grrminator/Easy-GPU-PV/archive/refs/tags/1.3.zip)
 3. Search your system for Powershell ISE and run as Administrator.
 4. In the extracted folder you downloaded, open PreChecks.ps1 in Powershell ISE.  Run the files from within the extracted folder. Do not move them.
 5. Open and Run PreChecks.ps1 in Powershell ISE using the green play button and copy the GPU Listed (or the warnings that you need to fix).
