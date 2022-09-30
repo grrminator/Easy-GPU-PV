@@ -32,9 +32,6 @@ Easy-GPU-PV does the following...
 8. After this, a window should pop open and you should see your VM Booting. It may reboot multiple times. After it gets to the desktop, right click the desktop, display settings, and then change the SECOND display's resolution to your desired resolution for remote gaming.
 9. Close out the VM and then remote in with parsec!
 #### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
-18. Have Fun! You now have a fully functioning gaming VM!
-    
-Notes: If you reboot the VM and parsec stays black, it is because you did not make the OnlyAddOneDisplay.bat run on startup. You will have to make 100% it starts on boot.
 
 ### Upgrading GPU Drivers when you update the host GPU Drivers
 It's important to update the VM GPU Drivers after you have updated the Host GPUs drivers. You can do this by...  
