@@ -30,13 +30,18 @@ Easy-GPU-PV does the following...
 6. Open CopyFilesToVM.ps1 Powershell ISE and edit the params section at the top of the file, you need to be careful about how much ram, storage and hard drive you give it as your system needs to have that available.  On Windows 10 the GPUName must be left as "AUTO", In Windows 11 it can be either "AUTO" or the specific name of the GPU you want to partition exactly how it appears in PreChecks.ps1.  Additionally, you need to provide the path to the Windows 10/11 ISO file you downloaded.
 7. Run CopyFilesToVM.ps1 with your changes to the params section - this may take 5-10 minutes.
 8. After this, the computer should be ready to remote into with the Hyper-V Manager. Do so now.
+9. Login to parsec. Then close out of the Hyper V window. Then Turn off the VM via Hyper-V manager, then turn it back on.
+10. Remote into parsec, the screen may be black for a while and you will have a privacy error in the corner of parsec. There is NO WAY to fix that privacy error without breaking OpenGL or DirectX. The screen may be black for a bit. Up to 60 seconds.
+11. Congrats, you now have a working VM.
 
-###FOLLOW THE NEXT STEPS IN THIS PRECISE ORDER!
+If that doesnt work, follow the steps below
 
-9. After remoting into the VM Via hyper-V manager, log into parsec. 
-10. Then after logging into parsec, remote into the VM with parsec with another machine or the host of the VM.
-11. After you see the desktop in parsec, close the hyper V connection.
-12. You now have a parsec enabled gaming VM!
+###FOLLOW THE NEXT STEPS IN THIS PRECISE ORDER TO FIX PARSEC BLACK SCREEN!
+
+1. After remoting into the VM Via hyper-V manager, log into parsec. 
+2. Then after logging into parsec, remote into the VM with parsec with another machine or the host of the VM.
+3. After you see the desktop in parsec, close the hyper V connection.
+4. You now have a parsec enabled gaming VM!
 
 #### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
 
