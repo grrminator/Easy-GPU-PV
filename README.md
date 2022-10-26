@@ -34,9 +34,9 @@ Easy-GPU-PV does the following...
 ###FOLLOW THE NEXT STEPS IN THIS PRECISE ORDER!
 
 9. After remoting into the VM Via hyper-V manager, log into parsec. 
-10. Then after logging into parsec, remote into parsec with another machine, or the host of the VM itself.
+10. Then after logging into parsec, remote into the VM with parsec with another machine or the host of the VM.
 11. After you see the desktop in parsec, close the hyper V connection.
-12. You now have a parsec enabled gaming VM.
+12. You now have a parsec enabled gaming VM!
 
 #### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
 
