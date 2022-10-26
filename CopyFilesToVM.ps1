@@ -1,17 +1,17 @@
 ﻿$params = @{
     VMName = "GPUPVNoVDD" #VMName No special characters, less than 15 characters
-    SourcePath = "C:\Users\test\Downloads\Win10_21H2_English_x64.iso" #Path to ISO, DO NOT USE MEDIA CREATION TOOL
+    SourcePath = "C:\Users\novam\Downloads\Win10_21H2_English_x64.iso" #Path to ISO, DO NOT USE MEDIA CREATION TOOL
     Edition    = 6 #Do not touch
     VhdFormat  = "VHDX" #Do not touch
     DiskLayout = "UEFI" #Do not touch
-    SizeBytes  = 20GB
+    SizeBytes  = 65GB
     MemoryAmount = 7GB
     CPUCores = 6
     NetworkSwitch = "Default Switch" #Do not touch unless you know what you are doing
     VHDPath = "C:\VMs" #Virtual Hard Drive Path
     UnattendPath = "$PSScriptRoot"+"\autounattend.xml" #Do Not Touch
     GPUName = "AUTO" #Windows 10 MUST be set to AUTO. If using Win 11 ISO, can be set to GPU name fed to you in precheck script.
-    GPUResourceAllocationPercentage = 25 #percentage of resources VM should use for GPU
+    GPUResourceAllocationPercentage = 33 #percentage of resources VM should use for GPU
 	
     Team_ID = "" #Optional for Parsec Teams function.
     Key = "" #Optional for Parsec Teams function.
@@ -171,7 +171,7 @@ param(
     Copy-Item -Path $psscriptroot\User\Install.ps1 -Destination $DriveLetter\Windows\system32\GroupPolicy\User\Scripts\Logon
     Copy-Item -Path $psscriptroot\Machine\psscripts.ini -Destination $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts
     Copy-Item -Path $psscriptroot\Machine\Install.ps1 -Destination $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts\Startup
-    Copy-Item -Path $psscriptroot\usbmmidd_v2 -Destination $DriveLetter\DisplayFix -recurse -Force
+    #Copy-Item -Path $psscriptroot\usbmmidd_v2 -Destination $DriveLetter\DisplayFix -recurse -Force
 }	
 
 function Convert-WindowsImage {

@@ -1,20 +1,14 @@
 ﻿<# 
 If you are opening this file in Powershell ISE you should modify the params section like so...
 Remember: GPU Name must match the name of the GPU you assigned when creating the VM...
-
-Param (
-[string]$VMName = "NameofyourVM",
-[string]$GPUName = "NameofyourGPU",
-[string]$Hostname = $ENV:Computername
-)
-
 #>
 
 Param (
-[string]$VMName,
-[string]$GPUName,
-[string]$Hostname = $ENV:Computername
+[string]$VMName = "GPUPVNoVDD",
+[string]$GPUName = "NVIDIA GeForce RTX 3070",
+[string]$Hostname = "$ENV:DESKTOP-O9THQ2K"
 )
+
 
 Import-Module $PSSCriptRoot\Add-VMGpuPartitionAdapterFiles.psm1
 

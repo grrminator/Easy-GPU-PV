@@ -29,12 +29,16 @@ Easy-GPU-PV does the following...
 5. Open and Run PreChecks.ps1 in Powershell ISE using the green play button and copy the GPU Listed (or the warnings that you need to fix).
 6. Open CopyFilesToVM.ps1 Powershell ISE and edit the params section at the top of the file, you need to be careful about how much ram, storage and hard drive you give it as your system needs to have that available.  On Windows 10 the GPUName must be left as "AUTO", In Windows 11 it can be either "AUTO" or the specific name of the GPU you want to partition exactly how it appears in PreChecks.ps1.  Additionally, you need to provide the path to the Windows 10/11 ISO file you downloaded.
 7. Run CopyFilesToVM.ps1 with your changes to the params section - this may take 5-10 minutes.
-8. After this, a window should pop open and you should see your VM Booting. It may reboot multiple times. After it gets to the desktop, right click the desktop, display settings, and then change the SECOND display's resolution to your desired resolution for remote gaming.
-9. Close out the VM and then remote in with parsec!
+8. After this, the computer should be ready to remote into with the Hyper-V Manager. Do so now.
+
+###FOLLOW THE NEXT STEPS IN THIS PRECISE ORDER!
+
+9. After remoting into the VM Via hyper-V manager, log into parsec. 
+10. Then after logging into parsec, remote into parsec with another machine, or the host of the VM itself.
+11. After you see the desktop in parsec, close the hyper V connection.
+12. You now have a parsec enabled gaming VM.
+
 #### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
-18. Have Fun! You now have a fully functioning gaming VM!
-    
-Notes: If you reboot the VM and parsec stays black, it is because you did not make the OnlyAddOneDisplay.bat run on startup. You will have to make 100% it starts on boot.
 
 ### Upgrading GPU Drivers when you update the host GPU Drivers
 It's important to update the VM GPU Drivers after you have updated the Host GPUs drivers. You can do this by...  
