@@ -36,12 +36,16 @@ Easy-GPU-PV does the following...
 
 If that doesnt work, follow the steps below
 
-###FOLLOW THE NEXT STEPS IN THIS PRECISE ORDER TO FIX PARSEC BLACK SCREEN!
+###FOLLOW THE NEXT STEPS IN THIS PRECISE ORDER TO FIX LONG PARSEC BLACK SCREENS:
 
-1. After remoting into the VM Via hyper-V manager, log into parsec. 
-2. Then after logging into parsec, remote into the VM with parsec with another machine or the host of the VM.
-3. After you see the desktop in parsec, close the hyper V connection.
-4. You now have a parsec enabled gaming VM!
+1. Open Hyper-V Manager.
+2. On the right side of the screen, select Virtual Switch Manager
+3. Select New Virtual Switch, Then Select External, Then press Create Virtual Switch.
+4. Make a name for it. I do Outer Network because I am bad with names. Then select external network, and in the dropdown, select the device you use to get internet on your host.
+5. Then click OK, then Yes. You may briefly lose internet.
+6. Then go back to Hyper-V Virtual Manager. Then select your VM, right click the VM, then settings. Then you select network adapter, and then set it to the new adapter you just made. Now the VM will behave like it is a new computer you connected directly to your router/wifi.
+7. Reboot VM so it can get fresh network settings. Parsec should now behave a bit better.
+
 
 #### This is important. DO NOT EVER, EEEEEEVER, Install the Parsec Virtual Display Adapter!
 

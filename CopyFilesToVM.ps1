@@ -171,7 +171,7 @@ param(
     Copy-Item -Path $psscriptroot\User\Install.ps1 -Destination $DriveLetter\Windows\system32\GroupPolicy\User\Scripts\Logon
     Copy-Item -Path $psscriptroot\Machine\psscripts.ini -Destination $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts
     Copy-Item -Path $psscriptroot\Machine\Install.ps1 -Destination $DriveLetter\Windows\system32\GroupPolicy\Machine\Scripts\Startup
-    #Copy-Item -Path $psscriptroot\usbmmidd_v2 -Destination $DriveLetter\DisplayFix -recurse -Force
+    Copy-Item -Path $psscriptroot\usbmmidd_v2 -Destination $DriveLetter\DisplayFix -recurse -Force
 }	
 
 function Convert-WindowsImage {
@@ -4306,7 +4306,7 @@ function Assign-VMGPUPartitionAdapter {
 param(
 [string]$VMName,
 [string]$GPUName,
-[decimal]$GPUResourceAllocationPercentage = 100
+[decimal]$GPUResourceAllocationPercentage
 )
     
     $PartitionableGPUList = Get-WmiObject -Class "Msvm_PartitionableGpu" -ComputerName $env:COMPUTERNAME -Namespace "ROOT\virtualization\v2" 
