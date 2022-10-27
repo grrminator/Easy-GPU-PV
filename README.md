@@ -36,7 +36,7 @@ Easy-GPU-PV does the following...
 
 If that doesnt work, follow the steps below
 
-###FOLLOW THE NEXT STEPS IN THIS PRECISE ORDER TO FIX LONG PARSEC BLACK SCREENS:
+###FOLLOW THE NEXT STEPS TO MAKE IT EASIER FOR NETWORKING IN YOUR VM
 
 1. Open Hyper-V Manager.
 2. On the right side of the screen, select Virtual Switch Manager
