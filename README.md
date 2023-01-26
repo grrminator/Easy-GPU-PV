@@ -34,7 +34,8 @@ Easy-GPU-PV does the following...
 10. Remote into parsec, the screen may be black for a while and you will have a privacy error in the corner of parsec. There is NO WAY to fix that privacy error without breaking OpenGL or DirectX. The screen may be black for a bit. Up to 60 seconds.
 11. Congrats, you now have a working VM.
 
-If that doesnt work, follow the steps below
+
+Optionally: you can manually install sunshine, and disable parsec running at start up. Look at sunshine here: https://github.com/LizardByte/Sunshine
 
 ###FOLLOW THE NEXT STEPS TO MAKE IT EASIER FOR NETWORKING IN YOUR VM
 
