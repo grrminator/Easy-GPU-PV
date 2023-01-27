@@ -2,9 +2,6 @@
 A work-in-progress project dedicated to making GPU Paravirtualization on Windows Hyper-V easier!  
 
 
-# This fork and all of its versions are broken. There is not much I can do to fix it. The original repo is the only "working" one but you cant even really game on that. I suggest researching into hosting VMs through linux and doing GPU passthrough via that OS because windows is honestly kind of fucky when it comes to VMs. I apologize that I do not have the experience to make this work.
-
-
 ### This fork has removed Parsec's Virtual Display Adapter. As it causes OpenGL issues and will cause numerous games to crash. I have edited some of the powershell to prevent it from installing initially, and it installs parsec of its own occord, without the virtual display adapter.
 
 GPU-PV allows you to partition your systems dedicated or integrated GPU and assign it to several Hyper-V VMs.  It's the same technology that is used in WSL2, and Windows Sandbox.  
