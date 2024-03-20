@@ -32,8 +32,9 @@ Easy-GPU-PV does the following...
 7. Run CopyFilesToVM.ps1 with your changes to the params section - this may take 5-10 minutes.
 8. After this, the computer should be ready to remote into with the Hyper-V Manager. Do so now.
 9. Login to parsec. Then close out of the Hyper V window. Then Turn off the VM via Hyper-V manager, then turn it back on.
-10. Remote into parsec, the screen may be black for a while and you will have a privacy error in the corner of parsec. There is NO WAY to fix that privacy error without breaking OpenGL or DirectX. The screen may be black for a bit. Up to 60 seconds.
-11. Congrats, you now have a working VM.
+10. Open your Client's parsec "config.txt" file and add this: "client_overlay_warnings = 0" and restart Parsec on your client. This will hide a privacy error that parsec will otherwise show with no way to turn off.
+11. Remote into parsec, the screen may be black for a while. Up to 60 seconds.
+12. Congrats, you now have a working VM.
 
 
 Optionally: you can manually install sunshine, and disable parsec running at start up. Look at sunshine here: https://github.com/LizardByte/Sunshine
